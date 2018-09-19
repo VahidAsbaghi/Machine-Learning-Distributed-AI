@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAIvacumecleaner", "DAIvacumecleaner\DAIvacumecleaner.csproj", "{5CDE5A62-9F00-4531-9ABD-AE817F753DCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CDE5A62-9F00-4531-9ABD-AE817F753DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CDE5A62-9F00-4531-9ABD-AE817F753DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CDE5A62-9F00-4531-9ABD-AE817F753DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CDE5A62-9F00-4531-9ABD-AE817F753DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A75FE161-6FFE-43D9-B2AB-32D31A48CDFD}
+	EndGlobalSection
+EndGlobal

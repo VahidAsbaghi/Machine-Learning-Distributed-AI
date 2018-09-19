@@ -1,0 +1,33 @@
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\DAIvacumecleaner.exe
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\DAIvacumecleaner.pdb
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.Form1.resources
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.Properties.Resources.resources
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.csproj.GenerateResource.Cache
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.exe
+C:\Users\RSP\Documents\Visual Studio 2008\Projects\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.pdb
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\DAIvacumecleaner.exe
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\DAIvacumecleaner.pdb
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\ResolveAssemblyReference.cache
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.Form1.resources
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.Properties.Resources.resources
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.csproj.GenerateResource.Cache
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.exe
+E:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.pdb
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\DAIvacumecleaner.exe
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\DAIvacumecleaner.pdb
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.csprojResolveAssemblyReference.cache
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.Form1.resources
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.Properties.Resources.resources
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.csproj.GenerateResource.Cache
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.csproj.CoreCompileInputs.cache
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.exe
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\obj\Debug\DAIvacumecleaner.pdb
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\robot4.jpg
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\i3.jpg
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\imagefill.jpg
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\robo1t.jpg
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\robot1.jpg
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\robot2.jpg
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\robot3.jpg
+H:\vahid\[012C7C]\machine learning\DAIvacumecleaner\DAIvacumecleaner\bin\Debug\pic\untitled1.jpg

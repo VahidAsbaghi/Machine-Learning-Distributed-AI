@@ -1,0 +1,704 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace DAIvacumecleaner
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        Panel[,] pa = new Panel[100, 100];
+        int[,] mat = new int[100, 100];
+        int[, ,] mro1 = new int[100, 9, 9];
+        // int n = 0;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            /* for (int i = 0; i < 6; i++)
+                 for (int j = 0; j < 6; j++)
+                 {
+                     Point po = new Point(i * 70, j * 70);
+                     pa[i, j] = new Panel();
+                     pa[i, j].BorderStyle = BorderStyle.FixedSingle;
+                     Size sz = new Size(70, 70);
+                     pa[i, j].Size = sz;
+                     pa[i, j].Location = po;
+                     mat[i, j] = 0;
+                 }
+             for (int i = 0; i < 6; i++)
+                 for (int j = 0; j < 6; j++)
+                 {
+                     panel1.Controls.Add(pa[i, j]);
+                 }
+             garbage_loc();
+             stop_sign_ini();
+             robot_ini();*/
+        }
+        void garbage_loc(int t)
+        {
+            int ob = Int32.Parse(textBox4.Text);
+            int ro = Int32.Parse(textBox3.Text);
+            int ga = Int32.Parse(textBox2.Text);
+            int[] ro1 = new int[ro + ob + ga];
+            int[] ro2 = new int[ro + ob + ga];
+            for (int k = 0; k < ro + ga + ob; k++)
+            {
+                ro1[k] = 0;
+                ro2[k] = 0;
+            }
+            int temp = 0;
+            int i = 0;
+            Random ra = new Random();
+            //Random ra1 = new Random();
+            while (i < ro + ob + ga)
+            {
+                temp = 0;
+                
+                int ro3 = ra.Next(0, t);
+                int ro4 = ra.Next(0, t);
+                //ro3 = Convert.ToInt32(ro3 / 90);
+                //ro4 = Convert.ToInt32(ro4 / 90);
+                ro1[i] = ro3;
+                ro2[i] = ro4;
+                if (i != 0)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (ro1[j] != ro3 || ro2[j] != ro4)
+                            temp++;
+                    }
+                }
+                if (temp == i)
+                {
+                   
+                    if (i < ro)
+                    {
+                        pa[ro3, ro4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot4.jpg");
+                        pa[ro3, ro4].BackgroundImageLayout = ImageLayout.Zoom;
+                        mat[ro3, ro4] = Int32.Parse('3' + i.ToString() + '4');
+                        textBox5.Text = mat[ro3, ro4].ToString();
+                    }
+                    else if (i < ro + ga)
+                    {
+                        pa[ro3, ro4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/i3.jpg");
+                        pa[ro3, ro4].BackgroundImageLayout = ImageLayout.Zoom;
+                        mat[ro3, ro4] = 1;
+                    }
+                    else if (i < ro + ga + ob)
+                    {
+                        pa[ro3, ro4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/untitled1.jpg");
+                        pa[ro3, ro4].BackgroundImageLayout = ImageLayout.Zoom;
+                        mat[ro3, ro4] = 2;
+                    }
+                    ++i;
+                }
+
+
+            }
+            /*pa[0, 5].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/i3.jpg");
+            pa[4, 1].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/i3.jpg");
+            pa[5, 5].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/i3.jpg");
+            pa[4, 5].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/i3.jpg");
+            
+            mat[0, 5] = 1;
+            mat[4, 1] = 1; mat[5, 5] = 1; mat[4, 5] = 1;
+              */
+        }
+       /* void stop_sign_ini()
+        {
+            pa[1, 3].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/untitled1.jpg");
+            pa[2, 1].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/untitled1.jpg");
+            pa[2, 4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/untitled1.jpg");
+            pa[3, 4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/untitled1.jpg");
+            pa[5, 2].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/untitled1.jpg");
+            mat[1, 3] = 2; mat[2, 1] = 2; mat[2, 4] = 2; mat[3, 4] = 2; mat[5, 2] = 2;
+        }
+        void robot_ini()
+        {
+            pa[1, 1].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot4.jpg");
+            pa[1, 5].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot4.jpg");
+            pa[3, 3].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot4.jpg");
+            mat[1, 1] = 314; mat[1, 5] = 324; mat[3, 3] = 334;
+        }
+        void stop_sign_rand()
+        {
+            Random ra = new Random(1);
+            int p = ra.Next(1, 4);
+        }*/
+       /* void robot()
+        {
+            int[,] mro1 = new int[9, 9];
+            int[,] mro2 = new int[9, 9];
+            int[,] mro3 = new int[9, 9];
+            for (int m = 0; m < 9; m++)
+                for (int n = 0; n < 9; n++)
+                {
+                    mro1[m, n] = -1;
+                    mro2[m, n] = -1;
+                    mro3[m, n] = -1;
+                }
+            //int p = 4, tempi = 0;
+            //int q = 4, tempj = 0;
+            int locationx1 = 0, locationy1 = 0, locationx2 = 0, locationy2 = 0, locationx3 = 0, locationy3 = 0;
+            //if(i+1<6)
+            //tempi = p + 1;
+            for (int i = 0; i < 6; i++)
+                for (int j = 0; j < 6; j++)
+                {
+                    if (mat[i, j] == 311 || mat[i, j] == 312 || mat[i, j] == 313 || mat[i, j] == 314)
+                    {
+                        locationx1 = i;
+                        locationy1 = j;
+                    }
+                    if (mat[i, j] == 321 || mat[i, j] == 322 || mat[i, j] == 323 || mat[i, j] == 324)
+                    {
+                        locationx2 = i;
+                        locationy2 = j;
+                    }
+                    if (mat[i, j] == 331 || mat[i, j] == 332 || mat[i, j] == 333 || mat[i, j] == 334)
+                    {
+                        locationx3 = i;
+                        locationy3 = j;
+                    }
+                }
+
+            for (int k = 0; k < 5; k++)
+                for (int l = 0; l < 5 - k; l++)
+                {
+                    if ((locationx1 + k) < 6 && (locationy1 - l) > 0)
+                        mro1[k + 4, l + 4] = mat[locationx1 + k, locationy1 - l];
+                    if ((locationx1 - k) > 0 && (locationy1 - l) > 0)
+                        mro1[4 - k, 4 - l] = mat[locationx1 - k, locationy1 - l];
+                    if ((locationx1 + k) < 6 && (locationy1 + l) < 6)
+                        mro1[4 + k, 4 + l] = mat[locationx1 + k, locationy1 + l];
+                    if ((locationx1 - k) > 0 && (locationy1 + l) < 6)
+                        mro1[4 - k, 4 + l] = mat[locationx1 - k, locationy1 + l];
+
+                    if ((locationx2 + k) < 6 && (locationy2 - l) > 0)
+                        mro2[k + 4, l + 4] = mat[locationx2 + k, locationy2 - l];
+                    if ((locationx2 - k) > 0 && (locationy2 - l) > 0)
+                        mro2[4 - k, 4 - l] = mat[locationx2 - k, locationy2 - l];
+                    if ((locationx2 + k) < 6 && (locationy2 + l) < 6)
+                        mro2[4 + k, 4 + l] = mat[locationx2 + k, locationy2 + l];
+                    if ((locationx2 - k) > 0 && (locationy2 + l) < 6)
+                        mro2[4 - k, 4 + l] = mat[locationx2 - k, locationy2 + l];
+
+                    if ((locationx3 + k) < 6 && (locationy3 - l) > 0)
+                        mro3[k + 4, l + 4] = mat[locationx3 + k, locationy3 - l];
+                    if ((locationx3 - k) > 0 && (locationy3 - l) > 0)
+                        mro3[4 - k, 4 - l] = mat[locationx3 - k, locationy3 - l];
+                    if ((locationx3 + k) < 6 && (locationy3 + l) < 6)
+                        mro3[4 + k, 4 + l] = mat[locationx3 + k, locationy3 + l];
+                    if ((locationx3 - k) > 0 && (locationy3 + l) < 6)
+                        mro3[4 - k, 4 + l] = mat[locationx3 - k, locationy3 + l];
+                }
+            int[,] matrix = new int[13, 13];
+            for (int i = 0; i < 13; i++)
+                for (int j = 0; j < 13; j++)
+                {
+                    matrix[i, j] = -1;
+                }
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 9; j++)
+                {
+                    if (mro1[i, j] == 321 || mro1[i, j] == 323 || mro1[i, j] == 324 || mro1[i, j] == 322)
+                    {
+                    }
+                }
+        */
+            //for (int k=0; k<5; k++)
+            //  for (int l = 0; l < 5 - k; l++)
+            //{
+
+
+
+            //}
+
+            /*private void pictureBox1_Paint(object sender, PaintEventArgs e)
+            {
+                for (int i = 1; i <= 5; i++)
+                {
+                    e.Graphics.DrawLine(Pens.Black, 70 * i, 0, 70 * i, 420);
+                    e.Graphics.DrawLine(Pens.Black, 0, 70 * i, 420, 70 * i);
+                }
+            
+            }*/
+        //}
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            int n = Int32.Parse(textBox1.Text);
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    Point po = new Point(i * 420 / n, j * 420 / n);
+                    pa[i, j] = new Panel();
+                    pa[i, j].BorderStyle = BorderStyle.FixedSingle;
+                    Size sz = new Size(420 / n, 420 / n);
+                    pa[i, j].Size = sz;
+                    pa[i, j].Location = po;
+                    mat[i, j] = 0;
+                }
+            for (int k = 0; k < n; k++)
+                for (int j = 0; j < n; j++)
+                {
+                    panel1.Controls.Add(pa[k, j]);
+                }
+             garbage_loc(n);
+             for (int i = 0; i < n; i++)
+                 for (int j = 0; j < n; j++)
+                     //textBox5.Text = mat[i, j].ToString()+i.ToString()+j.ToString()+"  "+textBox5.Text;
+
+             //textBox5.Text = mat[0, 0].ToString();
+            //}
+            //stop_sign_ini();
+            //robot_ini();
+        }
+
+        // int ii = 0;
+        // int[] ro1 = new int[30];
+        //int[] ro2 = new int[30];
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int n = Int32.Parse(textBox1.Text);
+            int ro=Int32.Parse(textBox3.Text);
+            //int[,,] mro1 = new int[ro,9, 9];
+            
+            for (int k=0; k<ro; k++)
+                for (int m = 0; m < 9; m++)
+                    for (int l = 0; l < 9; l++)
+                    {
+                        mro1[k, m, l] = -1;
+
+                    }
+           
+            int[,] loc_ro_x = new int[ro, n];
+            int[,] loc_ro_y = new int[ro, n];
+            //if(i+1<6)
+            //tempi = p + 1;
+            for (int p=0; p<ro; p++)
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    if (mat[i, j].ToString().StartsWith('3'+p.ToString())) 
+                    {
+                        loc_ro_x[p, i] = i;
+                        loc_ro_y[p, j] = j;
+                    }
+                   
+                }
+
+            for (int r=0; r<ro; r++)//map kardan ba tavajoh be shomareie har robat dar iek jadvale 9*9
+            for (int k = 0; k < 5; k++)
+                for (int l = 0; l < 5 - k; l++)
+                {
+                    if ((loc_ro_x[r, k] + k) < n && (loc_ro_y[r, l] - l) > 0)
+                        mro1[r,k + 4, 4 - l] = mat[loc_ro_x[r, k] + k, loc_ro_y[r, l] - l];
+                    if ((loc_ro_x[r,k] - k) > 0 && (loc_ro_y[r,l] - l) > 0)
+                        mro1[r,4 - k, 4 - l] = mat[loc_ro_x[r,k] - k, loc_ro_y[r,l] - l];
+                    if ((loc_ro_x[r, k] + k) < n && (loc_ro_y[r, l] + l) < n)
+                        mro1[r,4 + k, 4 + l] = mat[loc_ro_x[r, k] + k, loc_ro_y[r, l] + l];
+                    if ((loc_ro_x[r, k] - k) > 0 && (loc_ro_y[r, l] + l) < n)
+                        mro1[r,4 - k, 4 + l] = mat[loc_ro_x[r, k] - k, loc_ro_y[r, l] + l];
+                  
+                }
+            do_move();
+            //TreeView tv=new TreeView();
+            //List<int> li=new List<Int32>();
+          /*  TreeNodeCollection tnc=new TreeNodeCollection();
+            TreeNode[,] tn=new TreeNode[9,9];
+           
+            int x=0;
+            int y=0;
+            int obsx=0, obsy=0;
+            int min=10;
+            int robot=0;
+            int[] count=new int[1];
+            for (int r=0; r<ro; r++)
+                for (int i=0; i<8; i++)
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (mro1[r, i, j] != -1)
+                        {
+                            if (mro1[r, i, j] == 1)
+                            {
+                                for (int k = 4; k <= i; k++)
+                                    for (int l = 4; l <= j; l--)
+                                    {
+                                        if (mro1[r, k, l] == 2)
+                                        {
+                                            count[1]++;
+                                        }
+                                    }
+                                if (Math.Abs(4 - i) + Math.Abs(4 - j) == 1)
+                                {
+                                    min = Math.Abs(4 - i) + Math.Abs(4 - j);
+                                    x = i;
+                                    y = j;
+                                    robot = r;
+                                }
+                                else if (Math.Abs(4 - i) == 1 && Math.Abs(4 - j) == 1) //&& )
+                                {
+                                    if (Math.Abs(4 - i) + Math.Abs(4 - j) < min && (count == 0 || count == 1))
+                                    {
+                                        min = Math.Abs(4 - i) + Math.Abs(4 - j);
+                                        x = i;
+                                        y = j;
+                                        robot = r;
+                                    }
+                                }
+
+                                {
+                                    min = Math.Abs(4 - i) + Math.Abs(4 - j);
+                                    x = i;
+                                    y = j;
+                                    robot = r;
+                                }
+                                if (count == 2 && Math.Abs(4 - i) + Math.Abs(4 - j) < min && Math.Abs(4 - i) >= 2 && Math.Abs(4 - j) >= 2)
+                                {
+                                    min = Math.Abs(4 - i) + Math.Abs(4 - j);
+                                    x = i;
+                                    y = j;
+                                    robot = r;
+                                }
+                                if (x <= 0 && y >= 0)
+                                {
+
+                                    obsx = k;
+                                    obsy = l;
+                                }
+                            }
+                        }
+                    }
+                                    
+
+           */
+            /*
+            int n = Int32.Parse(textBox1.Text);
+            int ob = Int32.Parse(textBox4.Text);
+            int ro = Int32.Parse(textBox3.Text);
+            int ga = Int32.Parse(textBox2.Text);
+            
+            int temp = 0;
+            //int ii = 0;
+            // while (ii < ro + ob + ga)
+            //{
+            temp = 0;
+            Random ra = new Random();
+            int ro3 = ra.Next(0, n - 1);
+            int ro4 = ra.Next(0, n - 1);
+            ro1[ii] = ro3;
+            ro2[ii] = ro4;
+            if (ii!=0)
+            textBox5.Text = ro1[ii - 1].ToString() + ro3.ToString();
+            if (ii != 0)
+            {
+                for (int j = 0; j < ii; j++)
+                {
+                    if (ro1[j] != ro3 && ro2[j] != ro4)
+                        temp++;
+                }
+            }
+            if (temp == ii)
+            {
+                textBox5.Text = ii.ToString();
+                if (ii < ro)
+                {
+                    pa[ro3, ro4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot4.jpg");
+
+                    mat[ro3, ro4] = Int32.Parse('3' + ii.ToString() + '4');
+                }
+                else if (ii < ro + ga)
+                {
+                    pa[ro3, ro4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/i3.jpg");
+
+                    mat[ro3, ro4] = 1;
+                }
+                else if (ii < ro + ga + ob)
+                {
+                    pa[ro3, ro4].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/untitled1.jpg");
+
+                    mat[ro3, ro4] = 2;
+                }
+                ++ii;
+            }*/
+            
+        }
+        /*int span_ss(int r,int i, int j)
+        {
+            Stack<int> s = new Stack<int>(-2);
+            Queue<int> x = new Queue<int>(-1);
+            Queue<int> y = new Queue<int>(-1);
+            s.Push(mro1[r, i - 1, j]);
+            s.Push(mro1[r, i + 1, j]);
+            s.Push(mro1[r, i, j - 1]);
+            s.Push(mro1[r, i, j + 1]);
+            int z=s.Pop();
+            int dist=0;
+            int[] distt=new int[30];
+            int[,] xy=new int[9,9];
+            while (s.Count != 0)
+            {
+                if (z == -1)
+                {
+                    s.Push(mro1[r, i - 1, j]);
+                    s.Push(mro1[r, i, j + 1]);
+                    s.Push(mro1[r, i + 1, j]);
+                    s.Push(mro1[r, i, j + 1]);
+                    x.Enqueue(i);
+                    y.Enqueue(j);
+                    dist++;
+                    z = s.Pop();
+                }
+                else if (z == 2)
+                {
+                    z = s.Pop();
+                }
+                else if (z == Int32.Parse('3' + r.ToString() + '1') || z == Int32.Parse('3' + r.ToString() + '2') || z == Int32.Parse('3' + r.ToString() + '3') || z == Int32.Parse('3' + r.ToString() + '4'))
+                {
+                    z = s.Pop();
+                }
+                else if (z == 1)
+                {
+                    x.Enqueue(i);
+                    y.Enqueue(j);
+                    dist++;
+                    distt[1] = dist;
+                }
+            }
+            return 0;
+            /*
+            span_ss(r, i, j) = mro1(r, i, j);
+            int ro =Int32.Parse(textBox3.Text);
+            int nextip = 0, nextim = 0, nextjp = 0, nextjm = 0;
+            nextim = span_ss(r, i - 1, j);
+            nextip = span_ss(r, i + 1, j);
+            nextjm = span_ss(r, i, j - 1);
+            nextjp = span_ss(r, i, j + 1);
+            for (int k=0; k<5; k++)
+                for (int l = 0; l < 5; l++)
+                {
+                    nextim = mro1(r, i - 1, j);
+                    nextip = mro1(r, i + 1, j);
+                    nextjm = mro1(r, i, j - 1);
+                    nextjp = mro1(r, i, j + 1);
+                    i = i - 1;
+                    
+                }
+                    
+        }*/
+        void do_move()
+        {
+            int n = Int32.Parse(textBox1.Text);
+            int[] move = new int[3];
+            move = best_value();
+            int ii = 0, jj = 0, rr = 0,ip=0,jp=0;
+            rr = move[0];
+            ii = move[1];
+            jj = move[2];
+            //textBox5.Text = rr.ToString() + ii.ToString() + jj.ToString();
+            string sss="";
+            for(int i=0; i<n; i++)
+                for (int j = 0; j < n; j++)
+                {
+                    sss = mat[i, j].ToString();
+                    if (sss.StartsWith("3"))
+                    {
+                        
+                        sss = sss.Substring(1, sss.Length - 2);
+                        if (Int32.Parse(sss) == rr)
+                        {
+                            ip = i;
+                            jp = j;
+                        }
+                    }
+                }
+            sss = mat[ip, jp].ToString();
+            sss = sss.Substring(sss.Length - 1, 1);
+            pa[ip, jp].Update();
+            mat[ip,jp]=0;
+            if (ii == 0 && jj == 1)
+            {
+                pa[ip + ii, jp + jj].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot2.jpg");
+                mat[ip + ii, jp + jj] = Int32.Parse('3' + rr.ToString() + '2');
+            }
+            else if (ii == 1 && jj == 0)
+            {
+                pa[ip + ii, jp + jj].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot1.jpg");
+                mat[ip + ii, jp + jj] = Int32.Parse('3' + rr.ToString() + '1');
+            }
+            else if (ii == -1 && jj == 0)
+            {
+                pa[ip + ii, jp + jj].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot3.jpg");
+                mat[ip + ii, jp + jj] = Int32.Parse('3' + rr.ToString() + '3');
+            }
+            else if (ii == 0 && jj == -1)
+            {
+                pa[ip + ii, jp + jj].BackgroundImage = Image.FromFile("C:/Users/RSP/Documents/Visual Studio 2008/Projects/DAIvacumecleaner/DAIvacumecleaner/pic/robot4.jpg");
+                mat[ip + ii, jp + jj] = Int32.Parse('3' + rr.ToString() + '4');
+            }
+        }
+        int[] best_value()
+        {
+             
+            int ro=Int32.Parse(textBox3.Text);
+            double[,,] state_val = new double[ro,9, 9];
+            Stack<int> s = new Stack<int>();
+            Stack<double> s1=new Stack<double>();
+            Stack<int> isave = new Stack<int>();
+            Stack<int> jsave = new Stack<int>();
+            int ip=0,jp=0,temp=0;
+            double temp1=0,gama=0.9;
+            int[,,] sign=new int[ro,9,9];
+            for (int l=0; l<ro; l++)
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 9; j++)
+                {
+                    sign[l,i,j]=0;
+                    if (mro1[l, i, j] == 1)
+                        state_val[l, i, j] = 100;
+                    else
+                        state_val[l,i, j] = 0;
+                }
+           // textBox5.Text.Remove(0);
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 9; j++)
+                {
+                    textBox5.Text = state_val[1, i, j] +"  "+ textBox5.Text;
+                }
+            for (int l=0; l<ro; l++)
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 9; j++)
+                {
+                    if (mro1[l, i, j] == 1)
+                    {
+                        s.Push(mro1[l, i , j]);
+                        s1.Push(100);
+                        isave.Push(i);
+                        jsave.Push(j);
+                        sign[l,i,j]=-1;
+                    }
+                    while (s.Count()!=0)
+                    {
+                        ip = isave.Pop();
+                        jp = jsave.Pop();
+                        temp = s.Pop();
+                        temp1=s1.Pop();
+                        if (ip < 8)
+                        {
+                            if (mro1[l, ip + 1, jp] == 0 && sign[l, ip + 1, jp] != -1)
+                            {
+
+                                if (gama * temp1 > state_val[l, ip + 1, jp])
+                                {
+                                    s.Push(mro1[l, ip + 1, jp]);
+                                    sign[l, ip + 1, jp] = -1;
+                                    s1.Push(gama * temp1);
+                                    isave.Push(ip + 1);
+                                    jsave.Push(jp);
+                                    state_val[l, ip + 1, jp] = gama * temp1;
+                                }
+                            }
+                        }
+                        if (ip > 0)
+                        {
+                            if (mro1[l, ip - 1, jp] == 0 && sign[l, ip - 1, jp] != -1)
+                            {
+                                if (gama * temp1 > state_val[l, ip - 1, jp])
+                                {
+                                    s.Push(mro1[l, ip - 1, jp]);
+                                    sign[l, ip - 1, jp] = -1;
+                                    s1.Push(gama * temp1);
+                                    isave.Push(ip - 1);
+                                    jsave.Push(jp);
+                                    state_val[l, ip - 1, jp] = gama * temp1;
+                                }
+                            }
+                        }
+                        if (jp < 8)
+                        {
+                            if (mro1[l, ip, jp + 1] == 0 && sign[l, ip, jp + 1] != -1)
+                            {
+                                if (gama * temp1 > state_val[l, ip, jp + 1])
+                                {
+                                    s1.Push(gama * temp1);
+                                    s.Push(mro1[l, ip, jp + 1]);
+                                    sign[l, ip, jp + 1] = -1;
+                                    isave.Push(ip);
+                                    jsave.Push(jp+1);
+                                    state_val[l, ip, jp + 1] = gama * temp1;
+                                }
+                            }
+                        }
+                        if (jp > 0)
+                        {
+                            if (mro1[l, ip, jp - 1] == 0 - 1 && sign[l, ip, jp - 1] != -1)
+                            {
+                                if (gama * temp1 > state_val[l, ip, jp - 1])
+                                {
+                                    s.Push(mro1[l, ip, jp - 1]);
+                                    sign[l, ip, jp - 1] = -1;
+                                    s1.Push(gama * temp1);
+                                    isave.Push(ip);
+                                    jsave.Push(jp-1);
+                                    state_val[l, ip, jp - 1] = gama * temp1;
+                                }
+                            }
+                        }
+                    }
+                }
+            double max=0;
+            int rr = 0;
+            int r = 0;
+            ip = 0;
+            jp = 0;
+            for (r = 0; r < ro; r++)
+            {
+                if (state_val[r, 4, 4] > max)
+                {
+                    max = state_val[r, 4, 4];
+                    rr = r;
+                }
+            }
+            max = state_val[rr, 5, 4];
+            ip=1;
+            jp=0;
+            if (state_val[rr, 4, 5] > max)
+            {
+                max = state_val[rr, 4, 5];
+                ip = 0;
+                jp = 1;
+            }
+            if (state_val[rr, 3, 4] > max)
+            {
+                max = state_val[rr, 3, 4];
+                ip = -1;
+                jp = 0;
+            }
+            if (state_val[rr, 4, 3] > max)
+            {
+                max = state_val[rr, 4, 3];
+                ip = 0;
+                jp = -1;
+            }
+            int[] ret=new int[3];
+            ret[0]=rr;
+            ret[1]=ip;
+            ret[2]=jp;
+            return ret;
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
